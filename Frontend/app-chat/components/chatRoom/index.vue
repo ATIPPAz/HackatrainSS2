@@ -1,7 +1,7 @@
 <template>
     <v-card>
         test  id = {{this.roomID}}
-   <div v-if="!joined" class="parent">
+    <div v-if="!joined" class="parent">
     <div class="container">
     ไม่สามารถเชื่อมต่อห้องได้
         <input type="text" class="username" v-model="currentUser" />
@@ -40,17 +40,13 @@ export default {
     },
     mounted(){
         this.roomID = this.$router.currentRoute.query.roomId
+        this.socketInstance = io('http://localhost:5000/')
     },
     methods:{
-join(){
-    this.joined = true
-    this.socketInstance = io('https:localhost:4000')
-    this.socketInstance.on(
-        'message:received',(data)=>{
-           this.message.push(data)
-        }
-    )
-},
+        join(){
+            this.joined = true
+            this.socketInstance.on('message:received',(data)=>{this.message.push(data)})
+        },
 sendMessage(){
 this.addtext()
 this.text=''

@@ -4,7 +4,7 @@
       <v-text-field v-model="roomId" placeholder="Enter Room ID"/>
     </div>
     <div class="btn-margin" @click="joinRoom"><v-btn>Join Room</v-btn> </div>
-    <div class="btn-margin"><v-btn>Create Room</v-btn></div>
+    <div class="btn-margin" @click="create"><v-btn>Create Room</v-btn></div>
   </v-flex>
 </template>
 
@@ -24,6 +24,9 @@ export default {
         name: "chatRoom",
         query:{roomId:this.roomId }
       })
+    },
+    create(){
+
     }
   }
 }
