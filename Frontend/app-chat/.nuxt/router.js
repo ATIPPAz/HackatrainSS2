@@ -4,9 +4,9 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _7b7b2b08 = () => interopDefault(import('..\\pages\\chatRoom.vue' /* webpackChunkName: "pages/chatRoom" */))
-const _289b4a10 = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
-const _5ef3a6f9 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _7d3aaaab = () => interopDefault(import('..\\pages\\chatRoom.vue' /* webpackChunkName: "pages/chatRoom" */))
+const _30e8df7e = () => interopDefault(import('..\\pages\\login.vue' /* webpackChunkName: "pages/login" */))
+const _1de3ed2a = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -21,15 +21,15 @@ export const routerOptions = {
 
   routes: [{
     path: "/chatRoom",
-    component: _7b7b2b08,
+    component: _7d3aaaab,
     name: "chatRoom"
   }, {
     path: "/login",
-    component: _289b4a10,
+    component: _30e8df7e,
     name: "login"
   }, {
     path: "/",
-    component: _5ef3a6f9,
+    component: _1de3ed2a,
     name: "index"
   }],
 

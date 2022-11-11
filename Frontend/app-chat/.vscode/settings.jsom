@@ -1,0 +1,29 @@
+ 
+   "editor.formatOnSave": true, 
+  
+   "vetur.format.defaultFormatter.html": "prettier", 
+   "vetur.format.defaultFormatter.css": "prettier", 
+   "vetur.format.defaultFormatter.js": "prettier", 
+   "vetur.format.defaultFormatter.less": "prettier", 
+   "vetur.format.defaultFormatter.postcss": "prettier", 
+   "vetur.format.defaultFormatter.scss": "prettier", 
+   "vetur.format.defaultFormatter.stylus": "none", 
+   "vetur.format.defaultFormatter.ts": "prettier", 
+  
+   "prettier.singleQuote": true, 
+   "prettier.jsxSingleQuote": true, 
+   "prettier.trailingComma": "es5", 
+   "prettier.arrowParens": "always", 
+  
+   "path-intellisense.mappings": { 
+     "@": "${workspaceRoot}", 
+     "~": "${workspaceRoot}" 
+   }, 
+  
+   "i18n-ally.localesPaths": "locales", 
+   "i18n-ally.keystyle": "nested", 
+  
+   "sonarlint.connectedMode.project": { 
+     "projectKey": "got-frontend" 
+   } 
+ }
