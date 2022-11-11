@@ -8,7 +8,6 @@ const rooms = []
 const chatMessage = []
 /*
 {
-
     message: data
     messagetype: pic or string
 }
