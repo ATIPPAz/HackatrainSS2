@@ -1,11 +1,16 @@
 <template>
-  <v-flex class="container-card">
+  <v-card elevation="5"  class="container-card">
+    <v-col>
     <div>
       <v-text-field v-model="roomId" placeholder="Enter Room ID"/>
     </div>
-    <div class="btn-margin" @click="joinRoom"><v-btn>Join Room</v-btn> </div>
-    <div class="btn-margin" @click="create"><v-btn>Create Room</v-btn></div>
-  </v-flex>
+    <v-row>
+        <div class="btn-margin" style="margin-right:10px;margin-left: 15px;" @click="joinRoom"><v-btn>Join Room</v-btn> </div>
+        <div class="btn-margin"  style="margin-right:10px;" @click="create"><v-btn>Create Room</v-btn></div>
+        <v-flex v-show="created">it's feature</v-flex>
+    </v-row>
+  </v-col>
+  </v-card>
 </template>
 
 <script>
@@ -15,7 +20,8 @@ export default {
   components:{Login},
   data(){
     return({
-      roomId:''
+      roomId:'',
+      created:false
     })
   },
   methods:{
@@ -26,7 +32,7 @@ export default {
       })
     },
     create(){
-
+      this.created = !this.created
     }
   }
 }

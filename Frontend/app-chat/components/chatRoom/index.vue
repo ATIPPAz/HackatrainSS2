@@ -1,27 +1,35 @@
 <template>
-    <v-card>
-        test  id = {{this.roomID}}
-    <div v-if="!joined" class="parent">
-    <div class="container">
-    ไม่สามารถเชื่อมต่อห้องได้
-        <input type="text" class="username" v-model="currentUser" />
-        <button class="btn" @click="join"> Join</button>
-    </div>
-   </div>
-   <div v-if="joined">
-    <div class="container-list">
-    <div v-for="message in message" :key="message.id">
-        <b>
-{{message.user}} 
-        </b>
-        : {{message.text}}
-    </div>
-</div>
-<div class="container-text">
-    <textarea class="text-area" v-model="text" @keyup.enter="sendMessage" />
-</div>
-   </div>
-   
+    <v-card elevation="3" style="padding: 20px;">
+            <div v-if="!joined" class="parent">
+                <v-col>
+                <strong>Enter your name</strong>
+                <v-flex class="container">
+                    <v-text-field type="text" class="username" v-model="currentUser" />
+                    <v-btn class="btn" @click="join"> Join</v-btn>
+                </v-flex>
+            </v-col>
+            </div>
+            <div v-if="joined">
+                <v-col>
+                <strong>Chat Room V.1</strong>
+            <v-col style="height:400px;overflow-y: auto;">
+                <v-row v-for="message in message" :key="message.id">
+                    <v-card elevation="5" style="width: 100%;padding:20px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
+                        <strong>{{message.user}}</strong>: {{message.text}}
+                    </v-card>
+                </v-row>
+            </v-col>
+            <v-col>
+            <v-row style="margin-top:20px;">
+                    <textarea id="text" style="border-style:solid;width:100%;" v-model="text" @keyup.enter="sendMessage" />
+                    <v-row class="mt-2">
+                        <v-col md="6" style="font-size:8px">press button or enter to send message</v-col>
+                        <v-col md="6" class="d-flex justify-end"><v-btn @click="sendMessage">send</v-btn></v-col>
+                    </v-row>
+            </v-row>
+        </v-col>
+    </v-col>
+            </div>
     </v-card>
 </template>
 <script>
@@ -35,7 +43,8 @@ export default {
             text:'',
             message:[],
             socketInstance:null,
-            roomID:''
+            roomID:'',
+            yourId:''
         })
     },
     mounted(){
@@ -48,12 +57,14 @@ export default {
             this.socketInstance.on('message:received',(data)=>{this.message.push(data)})
         },
 sendMessage(){
-this.addtext()
-this.text=''
+  
+        this.addtext()
+
+    this.text=''
 },
 addtext(){
         const messages = {
-        id:new Date().getTime(),
+        id:this.yourId,
         user:this.currentUser,
         text:this.text,
         time:new Date().getTime()
