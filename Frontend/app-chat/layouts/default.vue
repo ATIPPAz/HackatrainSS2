@@ -6,7 +6,6 @@
       </v-container>
     </v-main>
     <v-footer
-      :absolute="!fixed"
       app
     >
     <span>LiveChatApp &copy;{{ new Date().getFullYear() }}</span>

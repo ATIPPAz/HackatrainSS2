@@ -6,7 +6,7 @@
  npm-debug.log* 
  yarn-debug.log* 
  yarn-error.log* 
-  
+
  # Runtime data 
  pids 
  *.pid 
@@ -35,8 +35,8 @@
  build/Release 
   
  # Dependency directories 
- node_modules/
- jspm_packages/
+ node_modules/ 
+ jspm_packages/ 
   
  # TypeScript v1 declaration files 
  typings/ 
@@ -71,7 +71,7 @@
   
  # Nuxt generate 
  dist 
-  
+node_modules
  # vuepress build output 
  .vuepress/dist 
   
