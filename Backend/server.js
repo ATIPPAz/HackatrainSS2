@@ -4,10 +4,15 @@ const {Server} = require('socket.io')
 
 const app = express()
 const server = http.createServer(app)
-
 const rooms = []
 const chatMessage = []
+/*
+{
 
+    message: data
+    messagetype: pic or string
+}
+*/
 let roomId = 0
 const io = new Server(server,{
     cors:{
@@ -16,7 +21,7 @@ const io = new Server(server,{
     }
 })
 
-io.on('connection',(socket)=>{
+io.on('connection',(socket)=>{    
     rooms.forEach((room)=>{
         room.users.forEach((user)=>{
             if(user.id !== socket.id){
@@ -30,7 +35,7 @@ io.on('connection',(socket)=>{
             }
         })
     })
-    // console.log(room);
+    
     console.log(`user ${socket.id} is connectd`)
     socket.on('createRoom',(detail)=>{
         socket.broadcast.emit('createRoom:create',data)
