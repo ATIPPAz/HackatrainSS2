@@ -1,0 +1,23 @@
+[
+  {
+    "name": "chatRoom",
+    "path": "/chatRoom",
+    "component": "C:\\\\RedNotice\\\\hack\\\\Frontend\\\\app-chat\\\\pages\\\\chatRoom.vue",
+    "chunkName": "pages/chatRoom",
+    "_name": "_7b7b2b08"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "C:\\\\RedNotice\\\\hack\\\\Frontend\\\\app-chat\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_289b4a10"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\RedNotice\\\\hack\\\\Frontend\\\\app-chat\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_5ef3a6f9"
+  }
+]
