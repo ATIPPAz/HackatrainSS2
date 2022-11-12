@@ -3,18 +3,21 @@
     "name": "chatRoom",
     "path": "/chatRoom",
     "component": "C:\\\\RedNotice\\\\HackatrainSS2\\\\Frontend\\\\app-chat\\\\pages\\\\chatRoom.vue",
-    "chunkName": "pages/chatRoom"
+    "chunkName": "pages/chatRoom",
+    "_name": "_7d3aaaab"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "C:\\\\RedNotice\\\\HackatrainSS2\\\\Frontend\\\\app-chat\\\\pages\\\\login.vue",
-    "chunkName": "pages/login"
+    "chunkName": "pages/login",
+    "_name": "_30e8df7e"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\RedNotice\\\\HackatrainSS2\\\\Frontend\\\\app-chat\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_1de3ed2a"
   }
 ]
