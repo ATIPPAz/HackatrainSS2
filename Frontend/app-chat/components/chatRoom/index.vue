@@ -11,7 +11,7 @@
             </div>
             <div v-if="joined">
                 <v-col>
-                <strong>Chat Room V.1</strong>
+                <strong>Chat Room V.1</strong><v-spacer></v-spacer><p>User: {{currentUser}}</p>
             <v-col style="height:400px;overflow-y: auto;">
                 <v-row v-for="message in message" :key="message.id">
                     <v-card elevation="5" style="width: 100%;padding:20px;margin-top: 10px;margin-left: 10px;margin-right: 10px;">
@@ -21,9 +21,11 @@
             </v-col>
             <v-col>
             <v-row style="margin-top:20px;">
-                    <textarea id="text" style="border-style:solid;width:100%;" v-model="text" @keyup.enter="sendMessage" />
+                <v-col md="10"><textarea id="text" style="border-style:solid;width:100%;" v-model="text" @keyup.enter="sendMessage" /></v-col>
+                <v-col md="2"><input type="file" @change="up"/></v-col>
+                <v-img v-show="image" :src="image"/>
                     <v-row class="mt-2">
-                        <v-col md="6" style="font-size:8px">press button or enter to send message</v-col>
+                        <v-col md="6" style="font-size:16px">press button or enter to send message</v-col>
                         <v-col md="6" class="d-flex justify-end"><v-btn @click="sendMessage">send</v-btn></v-col>
                     </v-row>
             </v-row>
@@ -44,7 +46,8 @@ export default {
             message:[],
             socketInstance:null,
             roomID:'',
-            yourId:''
+            yourId:'',
+            image:null
         })
     },
     mounted(){
@@ -56,14 +59,40 @@ export default {
             this.joined = true
             this.socketInstance.on('message:received',(data)=>{this.message.push(data)})
         },
-sendMessage(){
-  
-        this.addtext()
+        up(e){
+            const image = e.target.files[0];
+                const reader = new FileReader();
+                reader.readAsDataURL(image);
+                reader.onload = e =>{
+                    // var fs = require('fs'),
+                    // PNG = require('pngjs').PNG;
+                    // fs.createReadStream('in.png')
+                    //     .pipe(new PNG())
+                    //     .on('parsed', function() {
+                    //         for (var y = 0; y < this.height; y++) {
+                    //             for (var x = 0; x < this.width; x++) {
+                    //                  var idx = (this.width * y + x) 
+                    //                  this.data[idx] = 255 - this.data[idx]; // R
+                    //                  this.data[idx+1] = 255 - this.data[idx+1]; // G
+                    //                 this.data[idx+2] = 255 - this.data[idx+2]; // B// and reduce opacity
+                    //                 this.data[idx+3] = this.data[idx+3]
+                    //             }
+                    //         }
+                    //         this.pack().pipe(fs.createWriteStream('out.png'))});
+                            this.image = e.target.result;
+                            const base64String = reader.result
+                             // .replace('data:', '')
+                             // .replace(/^.+,/, '');
+                             console.log(base64String)
+                            }
 
+                        },
+sendMessage(){
+    this.addtext()
     this.text=''
 },
 addtext(){
-        const messages = {
+    const messages = {
         id:this.yourId,
         user:this.currentUser,
         text:this.text,
